@@ -2,6 +2,7 @@ namespace :gettext do
   def load_gettext
     require 'gettext'
     require 'gettext/utils'
+    require File.expand_path("../../lib/array_find_index", __FILE__)
   end
 
   desc "Create mo-files for L10n"
