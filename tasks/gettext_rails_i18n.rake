@@ -71,4 +71,11 @@ namespace :gettext do
       :ignore_tables=>[/^sitemap_/,/_versions$/,'schema_migrations']
     )
   end
+
+  desc "write the locale/yml_import.rb file"
+  task :store_yml_translations => :environment do
+    require 'gettext_i18n_rails/yml_finder'
+
+    GettextI18nRails.store_yml_translations("locale/yml_import.rb", *Dir.glob("locale/*/app.po"))
+  end
 end
